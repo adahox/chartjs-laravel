@@ -1,0 +1,25 @@
+{
+    "name": "olharacessivel/chartjs-laravel",
+    "description": "A powerful and light library to use chartjs on Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Olharacessivel\\ChartjsLaravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Olharacessivel\\ChartjsLaravel\\ChartjsLaravelServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Adão Dias",
+            "email": "adahox@gmail.com"
+        }
+    ],
+    "require": {}
+}
