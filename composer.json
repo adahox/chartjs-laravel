@@ -21,5 +21,11 @@
             "email": "adahox@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    },
+    "scripts": {
+        "phpcs": "vendor/bin/phpcs . --ignore=\"./vendor, *.blade.php\"",
+        "phpcbf": "php vendor/bin/phpcbf . --ignore=\"./vendor\""
+    }
 }
