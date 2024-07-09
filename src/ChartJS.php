@@ -17,10 +17,17 @@ class ChartJS
 
     private array $dataset;
 
+    private bool $comparative = false;
+
 
     public function bar()
     {
-        $barChart = new ChartBar($this->labels, [$this->dataset]);
+        if (!$this->isComparative())
+        {
+            $this->dataset = [$this->dataset];
+        }
+
+        $barChart = new ChartBar($this->labels, $this->dataset);
         $chartOptions = $barChart->getOptions();
         $chartSign = $barChart->sign();
 
@@ -116,10 +123,36 @@ class ChartJS
     }
 
 
+    public function enableComparative(): void
+    {
+        $this->comparative = true;
+
+    }
+
+
+    public function disableComparative(): void
+    {
+        $this->comparative = false;
+
+    }
+
+
+    private function isComparative(): bool
+    {
+        return $this->comparative;
+
+    }
+
+
     public function dataSet(string $label, array $dataset , $settings = [])
     {
         $this->dataset['label'] = $label;
         $this->dataset['data'] = $dataset;
+
+        if ($this->isComparative()) {
+            $this->dataset = $dataset;
+        }
+
         $this->dataset = array_merge($this->dataset, $settings);
 
     }
